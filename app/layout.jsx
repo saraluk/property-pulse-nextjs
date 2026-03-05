@@ -1,8 +1,11 @@
 import { Poppins } from "next/font/google";
-import "@/assets/styles/global.css";
 import TopNav from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "@/components/AuthProvider";
+import { ToastContainer } from "react-toastify";
+
+import "@/assets/styles/global.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,6 +26,7 @@ const RootLayout = ({ children }) => {
           <TopNav />
           <main>{children}</main>
           <Footer />
+          <ToastContainer />
         </body>
       </html>
     </AuthProvider>
