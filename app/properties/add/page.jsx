@@ -1,7 +1,7 @@
 import React from "react";
 import PropertyAddForm from "@/components/PropertyAddForm";
 
-export default function AddPropertyPage() {
+export default function Page() {
   return (
     <section className="bg-blue-50">
       <div className="container m-auto max-w-2xl py-24">
