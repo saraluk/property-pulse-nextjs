@@ -2,8 +2,7 @@
 
 import addMessage from "@/app/actions/addMessage";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useFormState } from "react-dom";
+import { useEffect, useActionState } from "react";
 import { toast } from "react-toastify";
 import SubmitMessageButton from "./SubmitMessageButton";
 
@@ -11,7 +10,7 @@ export default function PropertyContactForm({ property }) {
   const { data: session } = useSession();
 
   // In react 19, useFormState() is replaced with useActionState()
-  const [state, formAction] = useFormState(addMessage, {});
+  const [state, formAction] = useActionState(addMessage, {});
 
   useEffect(() => {
     if (state.error) toast.error(state.error);

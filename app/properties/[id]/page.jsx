@@ -19,8 +19,9 @@ import ShareButtons from "@/components/ShareButtons";
 import PropertyContactForm from "@/components/PropertyContactForm";
 
 export default async function PropertyPage({ params }) {
+  const paramsObj = await params;
   await connectDB();
-  const propertyDoc = await Property.findById(params.id).lean();
+  const propertyDoc = await Property.findById(paramsObj.id).lean();
   const property = convertToSerializableObject(propertyDoc);
 
   if (!property) {
