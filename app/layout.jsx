@@ -3,6 +3,7 @@ import TopNav from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "@/components/AuthProvider";
 import { ToastContainer } from "react-toastify";
+import { GlobalContextProvider } from "@/context/GlobalContext";
 
 import "@/assets/styles/global.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,14 +22,16 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <AuthProvider>
-      <html lang="en" className={poppins.className}>
-        <body>
-          <TopNav />
-          <main>{children}</main>
-          <Footer />
-          <ToastContainer />
-        </body>
-      </html>
+      <GlobalContextProvider>
+        <html lang="en" className={poppins.className}>
+          <body>
+            <TopNav />
+            <main>{children}</main>
+            <Footer />
+            <ToastContainer />
+          </body>
+        </html>
+      </GlobalContextProvider>
     </AuthProvider>
   );
 };
