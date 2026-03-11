@@ -38,4 +38,4 @@ const MessageSchema = new Schema(
 );
 
 const Message = models.Message || model("Message", MessageSchema);
-export default MessageSchema;
+export default Message;

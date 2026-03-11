@@ -5,7 +5,7 @@ import Message from "@/models/Message";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 // Server action
-async function addMessage(formData) {
+async function addMessage(previousState, formData) {
   await connectDB();
   const sessionUser = await getSessionUser();
   if (!sessionUser || !sessionUser.userId) {
