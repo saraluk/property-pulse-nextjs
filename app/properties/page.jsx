@@ -4,9 +4,10 @@ import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import Pagination from "@/components/Pagination";
 
-export default async function PropertiesPage({
-  searchParams: { page = 1, pageSize = 9 },
-}) {
+export default async function PropertiesPage({ searchParams }) {
+  const page = Number(searchParams?.page ?? 1);
+  const pageSize = Number(searchParams?.pageSize ?? 9);
+
   // fetching data from DB using server components
   await connectDB();
   const skip = (page - 1) * pageSize;
@@ -28,11 +29,7 @@ export default async function PropertiesPage({
           </div>
         )}
         {showPagination && (
-          <Pagination
-            page={parseInt(page)}
-            pageSize={parseInt(pageSize)}
-            totalItems={total}
-          />
+          <Pagination page={page} pageSize={pageSize} totalItems={total} />
         )}
       </div>
     </section>

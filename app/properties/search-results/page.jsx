@@ -8,8 +8,11 @@ import PropertySearchForm from "@/components/PropertySearchForm";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 export default async function SearchResultsPage({
-  searchParams: { location, propertyType },
+  searchParams,
 }) {
+  const location = String(searchParams?.location ?? "");
+  const propertyType = String(searchParams?.propertyType ?? "All");
+
   await connectDB();
   const locationPattern = new RegExp(location, "i");
   let query = {
