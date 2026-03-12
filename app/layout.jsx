@@ -7,6 +7,7 @@ import { GlobalContextProvider } from "@/context/GlobalContext";
 
 import "@/assets/styles/global.css";
 import "react-toastify/dist/ReactToastify.css";
+import "photoswipe/dist/photoswipe.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
