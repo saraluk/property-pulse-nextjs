@@ -2,11 +2,18 @@ import React from "react";
 import PropertyCard from "@/components/PropertyCard";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import Pagination from "@/components/Pagination";
 
-export default async function PropertiesPage() {
+export default async function PropertiesPage({
+  searchParams: { page = 1, pageSize = 9 },
+}) {
   // fetching data from DB using server components
   await connectDB();
-  const properties = await Property.find({}).lean(); // lean optimizes query performance by returning plain JS objects instead of mongoose documents
+  const skip = (page - 1) * pageSize;
+  const total = await Property.countDocuments({});
+  const properties = await Property.find({}).skip(skip).limit(pageSize); // lean optimizes query performance by returning plain JS objects instead of mongoose documents
+
+  const showPagination = total > pageSize;
 
   return (
     <section className="px-4 py-6">
@@ -19,6 +26,13 @@ export default async function PropertiesPage() {
               <PropertyCard key={property._id} property={property} />
             ))}
           </div>
+        )}
+        {showPagination && (
+          <Pagination
+            page={parseInt(page)}
+            pageSize={parseInt(pageSize)}
+            totalItems={total}
+          />
         )}
       </div>
     </section>
