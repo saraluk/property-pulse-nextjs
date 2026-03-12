@@ -7,7 +7,7 @@ export default function Pagination({ page, pageSize, totalItems }) {
     <section className="container mx-auto flex justify-center items-center my-8">
       {page > 1 ? (
         <Link
-          href={`/properties?page=${page - 1}`}
+          href={`/properties?page=${page - 1}&pageSize=${pageSize}`}
           className="mr-2 px-2 py-1 border border-gray-300 rounded"
         >
           Previous
@@ -18,7 +18,7 @@ export default function Pagination({ page, pageSize, totalItems }) {
       </span>
       {page < totalPages ? (
         <Link
-          href={`/properties?page=${page + 1}`}
+          href={`/properties?page=${page + 1}&pageSize=${pageSize}`}
           className="ml-2 px-2 py-1 border border-gray-300 rounded"
         >
           Next
