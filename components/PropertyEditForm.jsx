@@ -1,4 +1,3 @@
-import React from "react";
 import updateProperty from "@/app/actions/updateProperty";
 
 export default function PropertyEditForm({ property }) {

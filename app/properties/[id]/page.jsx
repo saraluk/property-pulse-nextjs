@@ -4,19 +4,18 @@
 // whatever comes after it, for example /properties/[id]/whatever/come/after/it
 // will render this page
 
-import React from "react";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
+import BookmarkButton from "@/components/BookmarkButton";
+import PropertyContactForm from "@/components/PropertyContactForm";
+import PropertyDetails from "@/components/PropertyDetails";
+import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+import PropertyImages from "@/components/PropertyImages";
+import ShareButtons from "@/components/ShareButtons";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
-import PropertyHeaderImage from "@/components/PropertyHeaderImage";
-import PropertyDetails from "@/components/PropertyDetails";
-import PropertyImages from "@/components/PropertyImages";
 import { convertToSerializableObject } from "@/utils/convertToObject";
-import BookmarkButton from "@/components/BookmarkButton";
-import ShareButtons from "@/components/ShareButtons";
-import PropertyContactForm from "@/components/PropertyContactForm";
 
 export default async function PropertyPage({ params }) {
   const paramsObj = await params;

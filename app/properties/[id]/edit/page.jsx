@@ -1,4 +1,3 @@
-import React from "react";
 import PropertyEditForm from "@/components/PropertyEditForm";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";

@@ -1,12 +1,11 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FaBed,
   FaBath,
-  FaRulerCombined,
-  FaMoneyBill,
+  FaBed,
   FaMapMarker,
+  FaMoneyBill,
+  FaRulerCombined,
 } from "react-icons/fa";
 
 export default function PropertyCard({ property }) {
